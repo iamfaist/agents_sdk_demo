@@ -1,0 +1,1 @@
+Compare the content of the PDF named ISTQB_CTFL_Syllabus_CZ file with the local file that is located in a Playground Vector Store.
