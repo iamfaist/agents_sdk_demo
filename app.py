@@ -28,17 +28,46 @@ logging.basicConfig(
 )
 
 ## loading prompts
-with open ("./prompts/coordinator.md", "r") as f:
-    COORDINATOR_PROMPT = f.read()
+try:
+    with open("./prompts/coordinator.md", "r") as f:
+        COORDINATOR_PROMPT = f.read()
+except FileNotFoundError:
+    print("Error: The file './prompts/coordinator.md' was not found.")
+    COORDINATOR_PROMPT = ""
+except Exception as e:
+    print(f"An error occurred while reading './prompts/coordinator.md': {e}")
+    COORDINATOR_PROMPT = ""
 
-with open ("./prompts/file_search.md", "r") as f:
-    FILE_SEARCH_PROMPT = f.read()
+try:
+    with open("./prompts/file_search.md", "r") as f:
+        FILE_SEARCH_PROMPT = f.read()
+except FileNotFoundError:
+    print("Error: The file './prompts/file_search.md' was not found.")
+    FILE_SEARCH_PROMPT = ""
+except Exception as e:
+    print(f"An error occurred while reading './prompts/file_search.md': {e}")
+    FILE_SEARCH_PROMPT = ""
 
-with open ("./prompts/web_search.md", "r") as f:
-    WEB_SEARCH_PROMPT = f.read()
+try:
+    with open("./prompts/web_search.md", "r") as f:
+        WEB_SEARCH_PROMPT = f.read()
+except FileNotFoundError:
+    print("Error: The file './prompts/web_search.md' was not found.")
+    WEB_SEARCH_PROMPT = ""
+except Exception as e:
+    print(f"An error occurred while reading './prompts/web_search.md': {e}")
+    WEB_SEARCH_PROMPT = ""
 
-with open ("user_input.md", "r") as f:
-    USER_INPUT = f.read()
+try:
+    with open("user_input.md", "r") as f:
+        USER_INPUT = f.read()
+except FileNotFoundError:
+    print("Error: The file 'user_input.md' was not found.")
+    USER_INPUT = ""
+except Exception as e:
+    print(f"An error occurred while reading 'user_input.md': {e}")
+    USER_INPUT = ""
+
 
 
 config = ConfigManager()
