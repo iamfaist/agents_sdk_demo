@@ -11,11 +11,18 @@ load_dotenv()
 ## loading environment variables
 class ConfigManager:
     def __init__(self, env_file=".env"):
-        load_dotenv(env_file)
+        try:
+            load_dotenv(env_file)
+        except Exception as e:
+            print(f"Error loading environment file '{env_file}': {e}")
+
         self.vector_store_id = os.getenv("vector_store_id")
+        if self.vector_store_id is None:
+            print("Warning: 'vector_store_id' not found in the environment variables.")
 
     def get_vector_store_id(self):
         return self.vector_store_id
+
 
 ## logging
 logging.basicConfig(
